@@ -1,0 +1,74 @@
+<div class="container-fluid">
+    <h2 class="p-2">Add new Professor</h2>
+
+    <form #form="ngForm" name="addProfessor" class="addProfessorForm bg-light" autocomplete="off">
+
+        <!-- professorId -->
+        <div class="form-group">
+            <input type="text" readonly class="form-control" placeholder="Employee ID" #professorId="ngModel"
+                [(ngModel)]="professorService.getAddProfessorDetails.professorId">
+        </div>
+
+        <!-- managerId -->
+        <div class="form-group">
+            <label class="form-label">Manager ID</label>
+            <input type="number" class="form-control" name="managerId" placeholder="Enter manager ID" #managerId="ngModel"
+                [(ngModel)]="professorService.getAddProfessorDetails.managerId" required
+                [ngClass]="{'is-invalid':managerId.touched && managerId.invalid}">
+            <!-- Validation -->
+            <div class="validation-error" *ngIf="managerId.touched && managerId.invalid">
+                <div *ngIf="managerId.errors.required">
+                    <p>Manager Id is required!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- firstName -->
+        <div class="form-group">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" name="firstName" placeholder="Enter first name" #firstName="ngModel"
+                [(ngModel)]="professorService.getAddProfessorDetails.firstName" minlength="3" maxlength="25" required
+                [ngClass]="{'is-invalid': firstName.touched && firstName.invalid}">
+            <!-- Validation -->
+            <div class="validation-error" *ngIf="firstName.touched && firstName.invalid">
+                <div *ngIf="firstName.errors.required">
+                    <p>First Name is required!</p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- lastName -->
+        <div class="form-group">
+            <label class="form-label">
+                Last Name:
+            </label>
+            <input type="text" name="lastName" #lastName="ngModel" [(ngModel)]="professorService.getAddProfessorDetails.lastName"
+                class="form-control" placeholder="Enter last name" minlength="3" maxlength="25" required
+                [ngClass]="{'is-invalid': lastName.touched && lastName.invalid}">
+            <!-- Validation error message -->
+            <div class="validation-error" *ngIf="lastName.touched && lastName.invalid">
+                <div *ngIf="lastName.errors.required">
+                    <p>Last Name is required!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- deptId -->
+        <div class="form-group">
+            <label class="form-label">Department ID</label>
+            <input class="form-control" type="number" placeholder="Enter department ID" #deptId="ngModel" [(ngModel)]="professorService.getAddProfessorDetails.deptId" required>
+        </div>
+
+        <!-- salary -->
+
+        <!-- joiningDate -->
+
+        <!-- dateOfBirth -->
+
+        <!-- gender -->
+
+        <!-- isActive -->
+
+    </form>
+</div>

@@ -1,0 +1,216 @@
+<form #form="ngForm" name="addProfessor" class="addProfessorForm bg-light" autocomplete="off">
+
+    <table class="table">
+        <!-- professorId -->
+        <div class="form-group">
+            <div class="row">
+
+                <div class="col-4"><label class="form-label">Employee ID</label></div>
+                <div class="col-4"><input type="text" name="professorId" readonly class="form-control" placeholder="Employee ID"
+                        #professorId="ngModel" [(ngModel)]="professorService.getAddProfessorDetails.professorId"></div>
+
+                </div>
+        </div>
+        <!-- managerId -->
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4"><label class="form-label">Manager ID</label></div>
+                <div class="col-4">
+                    <input type="number" class="form-control" name="managerId" placeholder="Enter manager ID"
+                        #managerId="ngModel" [(ngModel)]="professorService.getAddProfessorDetails.managerId" required
+                        [ngClass]="{'is-invalid':managerId.touched && managerId.invalid}">
+                    <!-- Validation -->
+                    <div class="validation-error text-danger" *ngIf="managerId.touched && managerId.invalid">
+                        <div *ngIf="managerId.errors.required">
+                            <p>Manager Id is required!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- firstName -->
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-label">First Name</label>
+                </div>
+                <div class="col-4">
+                    <input type="text" class="form-control" name="firstName" placeholder="Enter first name"
+                        #firstName="ngModel" [(ngModel)]="professorService.getAddProfessorDetails.firstName"
+                        minlength="3" maxlength="25" required
+                        [ngClass]="{'is-invalid': firstName.touched && firstName.invalid}">
+                    <!-- Validation -->
+                    <div class="validation-error text-danger" *ngIf="firstName.touched && firstName.invalid">
+                        <div *ngIf="firstName.errors.required">
+                            <p>First Name is required!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- lastName -->
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-label">
+                        Last Name:
+                    </label>
+                </div>
+                <div class="col-4">
+                    <input type="text" name="lastName" #lastName="ngModel"
+                        [(ngModel)]="professorService.getAddProfessorDetails.lastName" class="form-control"
+                        placeholder="Enter last name" minlength="3" maxlength="25" required
+                        [ngClass]="{'is-invalid': lastName.touched && lastName.invalid}">
+                    <!-- Validation error message -->
+                    <div class="validation-error text-danger" *ngIf="lastName.touched && lastName.invalid">
+                        <div *ngIf="lastName.errors.required">
+                            <p>Last Name is required!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- deptId -->
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-label">Department ID</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" type="number" placeholder="Enter department ID" name="deptId"
+                        #deptId="ngModel" [(ngModel)]="professorService.getAddProfessorDetails.deptId" required
+                        [ngClass]="{'is-invalid':deptId.touched && deptId.invalid}">
+                    <!-- Validation -->
+                    <div class="validation-error text-danger" *ngIf="deptId.touched && deptId.invalid">
+                        <div *ngIf="deptId.errors.required">
+                            <p>Department ID is required!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- salary -->
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-label">Salary</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" type="number" placeholder="Enter Salary" name="salary"
+                        #salary="ngModel" [(ngModel)]="professorService.getAddProfessorDetails.salary" required
+                        [ngClass]="{'is-invalid':salary.touched && salary.invalid}">
+                    <!-- Validation -->
+                    <div class="validation-error text-danger" *ngIf="salary.touched && salary.invalid">
+                        <div *ngIf="salary.errors.required">
+                            <p>Salary is required!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- joiningDate -->
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-label">DOJ</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" type="date" placeholder="Enter joining date" name="joiningDate"
+                        #joiningDate="ngModel" [(ngModel)]="professorService.getAddProfessorDetails.joiningDate" required
+                        [ngClass]="{'is-invalid':joiningDate.touched && joiningDate.invalid}">
+                    <!-- Validation -->
+                    <div class="validation-error text-danger" *ngIf="joiningDate.touched && joiningDate.invalid">
+                        <div *ngIf="joiningDate.errors.required">
+                            <p>Invalid Joining Date!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- dateOfBirth -->
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-label">DOB</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" type="date" placeholder="Enter date of birth" name="dateOfBirth"
+                        #dateOfBirth="ngModel" [(ngModel)]="professorService.getAddProfessorDetails.dateOfBirth" required
+                        [ngClass]="{'is-invalid':dateOfBirth.touched && dateOfBirth.invalid}">
+                    <!-- Validation -->
+                    <div class="validation-error text-danger" *ngIf="dateOfBirth.touched && dateOfBirth.invalid">
+                        <div *ngIf="dateOfBirth.errors.required">
+                            <p>Invalid Date of Birth!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- gender -->
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-label">Gender</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" type="text" placeholder="Enter gender" name="gender"
+                        #gender="ngModel" [(ngModel)]="professorService.getAddProfessorDetails.gender" required
+                        [ngClass]="{'is-invalid':gender.touched && gender.invalid}">
+                    <!-- Validation -->
+                    <div class="validation-error text-danger" *ngIf="gender.touched && gender.invalid">
+                        <div *ngIf="gender.errors.required">
+                            <p>Gender is Invalid!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- isActive -->
+        <div class="form-group">
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-check">
+                        <label class="form-label">Is In Service</label>
+                        <input type="checkbox" class="form-check-input" name="isActive" #isActive="ngModel" [(ngModel)]="professorService.getAddProfessorDetails.isActive">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-primary" (click)="insertProfessor(form)">Submit</button>
+        </div>
+
+    </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+    
+
+    
+
+    
+
+</form>
